@@ -4,30 +4,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "yeadd";
     $nom = trim($_POST['nom']);
     $prenom = trim($_POST['prenom']);
-    $username = trim($_POST['username']);
-    $contact = trim($_POST['contact']);
-    $password = trim($_POST['password']);
-    $role = $_POST['role'];
-    $specialite = $_POST['specialite'];
-    $sexe = $_POST['sexe'];
-    $grade = $_POST['grade'];
+    $heure_debut = $_POST['heure-debut'];
+    $heure_fin = $_POST['heure-debut'];
+    $contenu = trim($_POST['contenu']);
+    
   
-    if (!empty($nom) && !empty($prenom) && !empty($username) && !empty($contact)
-        && !empty($password) && !empty($role) && !empty($specialite)
-        && !empty($sexe) && !empty($grade)) {
+    if (!empty($nom) && !empty($prenom) && !empty($heure_debut) && !empty($heure_fin)
+        && !empty($contenu)) {
         echo "yo know";
-        // sanitize user input
-        $nom = htmlspecialchars($nom);
-        $prenom = htmlspecialchars($prenom);
-        $username = htmlspecialchars($username);
-        $contact = htmlspecialchars($contact);
-        $password = htmlspecialchars($password);
-        $role = htmlspecialchars($role);
-        $specialite = htmlspecialchars($specialite);
-        $sexe = htmlspecialchars($sexe);
-        $grade = htmlspecialchars($grade);
-  
-        // save user data to database
+        
+        $nom = htmlspecialchars($_POST['nom']);
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $heure_debut = htmlspecialchars($_POST['heure-debut']);
+        $heure_fin = htmlspecialchars($_POST['heure-debut']);
+        $contenu = htmlspecialchars($_POST['contenu']);
+
+        
         enrengistrer_user($nom, $prenom, $username, $contact, $password, $role, $specialite, $sexe, $grade);
     }
   }

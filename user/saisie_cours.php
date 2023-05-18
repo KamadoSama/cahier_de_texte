@@ -11,7 +11,7 @@ $ues = afficher_ue();
     <?php include("./header.php") ?>
     <div class="container">
       
-      <form action="./cahier_text.php">
+      <form action="../controller/saisie_cours.php">
         <h1>Saisie des cours</h1>
         <div class="form-group">
           <label for="nom">Nom :</label>

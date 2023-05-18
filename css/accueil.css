@@ -19,12 +19,14 @@ body {
   }
   
   h1 {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+    height: 39px;
   }
   
   .button-container {
     display: flex;
     justify-content: center;
+    margin-top: 12%;
   }
   
   .button {

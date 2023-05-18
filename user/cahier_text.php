@@ -1,7 +1,3 @@
-<?php 
-
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -56,21 +52,4 @@
         </tbody>
       </table>
     </div>
-    <?php
-// Heures de début et de fin
-$heureDebut = "07:30";
-$heureFin = "10:00";
-
-// Convertir les heures en objets DateTime
-$debut = DateTime::createFromFormat('H:i', $heureDebut);
-$fin = DateTime::createFromFormat('H:i', $heureFin);
-
-// Calculer la différence en heures
-$diff = $fin->diff($debut);
-$volumeHoraire = $diff->h + ($diff->i / 60);
-
-// Afficher le volume horaire
-echo "Volume horaire : " . $volumeHoraire . " heures";
-?>
-
-    <?php include("./footer.php"); ?>
+    <?php include("../footer.php"); ?>

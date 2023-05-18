@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto', sans-serif;
 }
 body{
 	min-height: 100%;
@@ -44,3 +46,71 @@ footer{
     background-color: transparent;
     margin-top: auto;
 }
+
+  /* Sidenav menu */
+  .topnav {
+    height: 200px;
+    width: 183px;
+    position: fixed;
+    z-index: 1;
+    /* top: 0; */
+    right: 10px;
+    top: -270px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    padding-top: 60px;
+    transition: top 0.5s ease;
+    text-align: center;
+    box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.75);
+  }
+  
+  .topnav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Sidenav menu links */
+  .topnav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .topnav ul a:hover {
+    background-color: #000;
+    color: #f7f7f7;
+  }
+  
+  /* Active class */
+  .topnav.active {
+    top:59px;
+  }
+  
+  /* Close btn */
+  .topnav .close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+  }
+  
+  .burger-icon span {
+    /* position: absolute; */
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color:#fff ;
+    margin: 6px 0;
+    padding:0px 10px;
+  }
+  .burger-icon{
+    position: absolute;
+    right: 10px;
+    top: 7.5px;
+  }

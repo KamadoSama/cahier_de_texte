@@ -6,8 +6,13 @@
   <head>
     <title>Page de connexion</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <?php include("./header.php") ?>
-    <div class="container">
+    <style>
+      body{
+        height: 100vh;
+      }
+    </style>
+    <!-- <?php include("./header.php") ?> -->
+    <div class="container" >
       <div class="login">
         <h1>Connexion</h1>
         <form action="./controller/connexion_sys.php" method="post">
@@ -25,5 +30,5 @@
       </div>
     </div>
    
-    <?php include("./footer.php") ?>
+    <!-- <?php include("./footer.php") ?> -->
 

@@ -4,16 +4,16 @@ function enrengistrer_user($nom,$prenom,$username,$contact,$password,$role,$spec
     if(require("connexion.php")){
         echo "bnesdq";
         if ($role == 'enseignant') {
-            // Ajouter l'enseignant à la base de données
+            
             $req = $access->prepare('INSERT INTO ENSEIGNANT (ID_SPECIALITE, ID_GRADE, ID_SEXE, NOM, PRENOM, CONTACT) VALUES (?,?,?,?,?,?)');
             $req->execute(array( $specialite, $grade,$sexe,$nom,$prenom,$contact));
-            $id_enseignant = $access->lastInsertId(); // Récupérer l'ID de l'enseignant créé
+            $id_enseignant = $access->lastInsertId(); 
             echo "ok!!";
         } else {
-            $id_enseignant = null; // Si l'utilisateur n'est pas un enseignant, l'ID sera null
+            $id_enseignant = null; 
         }
         
-        // Ajouter l'utilisateur à la base de données
+        
         $req = $access->prepare('INSERT INTO utilisateur (username, password, role, id_enseignant) VALUES (?, ?, ?,?)');
         $req->execute(array($username,$password, $role, $id_enseignant
         ));
@@ -22,31 +22,42 @@ function enrengistrer_user($nom,$prenom,$username,$contact,$password,$role,$spec
         exit();
     }
 }
-function connexion_user($username,$password){
-  if(require("connexion.php")){
-    $req=$access->prepare('SELECT `password` FROM `utilisateur` WHERE username=?; ');
+function connexion_user($username, $password) {
+  if (require("connexion.php")) {
+    $req = $access->prepare('SELECT password, role , id_user FROM utilisateur WHERE username = ?');
     $req->execute(array($username));
     
-    if($req->rowCount() == 1){
-      
-      $data = $req->fetchAll(PDO::FETCH_OBJ);
+    if ($req->rowCount() == 1) {
 
-      foreach($data as $pass){
-        $mdp = $pass->password;
-      }
+      $data = $req->fetch(PDO::FETCH_OBJ);
+      $mdp = $data->password;
+      $id = $data->id_user;
+      // $prenom = $data->prenom;
+      $role = $data->role;
 
-      if($mdp == $password)
-      {
-        header("Location: ../accueil.php");
-      }
-      else{
+      if ($mdp == $password) {
+        
+        session_start();
+        $_SESSION['id'] = $id;
+        $_SESSION['role'] = $role;
+
+        if($role=='Administrateur'){
+          header("Location: ../accueil.php");
+          exit();
+        }else{
+          header("Location: ../user/accueil.php");
+          exit();
+        }
+        
+      } else {
         header("Location: ../index.php");
+        exit();
       }
-
     }
-    $req->closeCursor();
   }
-  }
+}
+
+
 
 function afficher_grade(){
     if(require("connexion.php"))

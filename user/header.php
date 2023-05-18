@@ -1,14 +1,14 @@
-<link rel="stylesheet" href="./css/base.css">
+<link rel="stylesheet" href="../css/base.css">
 </head>
 <body>
     <header>
     <div id="mytopnav" class="topnav">
     <a id="closeBtn" href="#" class="close">&times;</a>
     <ul>
-        <li><a href="#">Ajouter enseignant</a></li>
+        
         <li><a href="#">Ajouter cours</a></li>
         <li><a href="#">Voir cours</a></li>
-        <li><a href="./controller/deconnexion_sys.php">Se deconnecter</a></li>
+        <li><a href="../controller/deconnexion_sys.php">Se deconnecter</a></li>
     </ul>
     </div>
 

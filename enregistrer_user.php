@@ -5,7 +5,6 @@ $grades = afficher_grade();
 $sexes = afficher_sexe();
 $specialites = afficher_specialite();
 
-
 ?>
 
 <!DOCTYPE html>

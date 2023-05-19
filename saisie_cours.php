@@ -1,5 +1,15 @@
 <?php 
 require("./config/fonction.php");
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+if(!isset($_SESSION['role'])){
+header('Location: ./index.php');
+}
+if(empty($_SESSION['role'])){
+header('Location: ./index.php');
+}
 $ues = afficher_ue();
 ?>
 

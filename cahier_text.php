@@ -1,5 +1,16 @@
 <?php 
+require("./config/fonction.php");
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
+if(!isset($_SESSION['role'])){
+  header('Location: ./index.php');
+}
+if(empty($_SESSION['role'])){
+  header('Location: ./index.php');
+}
+$cours = afficher_cours();
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +30,7 @@
             <th>Nom</th>
             <th>Prénom</th>
             <th>UE</th>
+            <th>Date</th>
             <th>Heure de début</th>
             <th>Heure de fin</th>
             <th>Volume horaire</th>
@@ -26,51 +38,36 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>TAHO</td>
-            <td>Ben</td>
-            <td>Mathématiques</td>
-            <td>09:00</td>
-            <td>10:30</td>
-            <td>30</td>
-            <td>Cours sur les équations différentielles</td>
-          </tr>
-          <tr>
-            <td>MENSAH</td>
-            <td>Luc</td>
-            <td>Informatique</td>
-            <td>14:00</td>
-            <td>16:00</td>
-            <td>60</td>
-            <td>Cours sur les bases de données</td>
-          </tr>
-          <tr>
-            <td>AMION</td>
-            <td>Davy</td>
-            <td>Anglais</td>
-            <td>11:00</td>
-            <td>12:30</td>
-            <td>30</td>
-            <td>Cours sur la grammaire anglaise</td>
-          </tr>
+        <?php foreach($cours as $cour ):?>
+              <tr>
+                <td> <?= $cour->NOM ?> </td>
+                <td> <?= $cour->PRENOM ?> </td>
+                <td> <?= $cour->LIB_UE ?> </td>
+                <td> <?= $cour->DATE_ENS ?> </td>
+                <td> <?= $cour->DEBUT_ENS ?></td>
+                <td> <?= $cour->FIN_ENS ?></td>
+                <td> <?= $cour->VOL_ENS ?></td>
+                <td> <?= $cour->CONTENU ?></td>
+              </tr>
+            <?php endforeach; ?>
         </tbody>
       </table>
     </div>
-    <?php
-// Heures de début et de fin
-$heureDebut = "07:30";
-$heureFin = "10:00";
+    <!-- <?php
+      // Heures de début et de fin
+      $heureDebut = "07:30";
+      $heureFin = "10:00";
 
-// Convertir les heures en objets DateTime
-$debut = DateTime::createFromFormat('H:i', $heureDebut);
-$fin = DateTime::createFromFormat('H:i', $heureFin);
+      // Convertir les heures en objets DateTime
+      $debut = DateTime::createFromFormat('H:i', $heureDebut);
+      $fin = DateTime::createFromFormat('H:i', $heureFin);
 
-// Calculer la différence en heures
-$diff = $fin->diff($debut);
-$volumeHoraire = $diff->h + ($diff->i / 60);
+      // Calculer la différence en heures
+      $diff = $fin->diff($debut);
+      $volumeHoraire = $diff->h + ($diff->i / 60);
 
-// Afficher le volume horaire
-echo "Volume horaire : " . $volumeHoraire . " heures";
-?>
-
+      // Afficher le volume horaire
+      echo "Volume horaire : " . $volumeHoraire . " heures";
+?> -->
+    <script src="./js/burger.js"></script>
     <?php include("./footer.php"); ?>

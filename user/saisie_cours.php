@@ -1,6 +1,14 @@
 <?php 
 require("../config/fonction.php");
+session_start();
+if(!isset($_SESSION['role'])){
+  header('Location: ../index.php');
+}
+if(empty($_SESSION['role'])){
+  header('Location: ../index.php');
+}
 $ues = afficher_ue();
+$classes =  afficher_classe();
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +19,7 @@ $ues = afficher_ue();
     <?php include("./header.php") ?>
     <div class="container">
       
-      <form action="../controller/saisie_cours.php">
+      <form action="../controller/saisie_cours.php" method="post">
         <h1>Saisie des cours</h1>
         <div class="form-group">
           <label for="nom">Nom :</label>
@@ -29,6 +37,18 @@ $ues = afficher_ue();
               foreach($ues as $ue ):
             ?>
             <option value="<?= $ue->ID_UE?>"><?= $ue->LIB_UE?></option>
+            <?php endforeach; ?>
+          </select>
+          <br>
+        </div>
+        <div class="form-group">
+        <label for="classe">Classe:</label>
+          <select class="role" id="classe" name="classe"  aria-label="Default select example">
+            <option selected>Classe</option>
+            <?php 
+              foreach($classes as $classe ):
+            ?>
+            <option value="<?= $classe->ID_CLASSE?>"><?= $classe->LIB_CLASSE?></option>
             <?php endforeach; ?>
           </select>
           <br>
@@ -55,4 +75,6 @@ $ues = afficher_ue();
         </div>
       </form>
     </div>
+    <script src="../js/burger.js"></script>
     <?php include("../footer.php") ?>
+    <?php echo $_SESSION['id'] ?>

@@ -22,6 +22,28 @@ function enrengistrer_user($nom,$prenom,$username,$contact,$password,$role,$spec
         exit();
     }
 }
+
+function saisie_cours($nom,$prenom,$ue,$classe,$heure_debut,$heure_fin,$contenu){
+  session_start();
+  $id_enseignant  = $_SESSION['id'];
+  $date = date("Y-m-d");
+
+  $debut = DateTime::createFromFormat('H:i', $heure_debut);
+  $fin = DateTime::createFromFormat('H:i', $heure_fin);
+  $diff = $fin->diff($debut);
+  $vol_ens = $diff->h + ($diff->i / 60);
+
+  if(require("connexion.php")){
+    $req= $access->prepare('INSERT INTO `enseigner`(`ID_UE`, `ID_CLASSE`, `ID_ENSEIGNANT`, `DATE_ENS`, `DEBUT_ENS`, `FIN_ENS`, `VOL_ENS`, `CONTENU`) VALUES (?,?,?,?,?,?,?,?)');
+    $req-> execute(array($ue,$classe,$id_enseignant,$date,$heure_debut,$heure_fin,$vol_ens,$contenu));
+
+    $req->closeCursor();
+
+    header("Location: ../user/cahier_text.php");
+
+  }
+}
+
 function connexion_user($username, $password) {
   if (require("connexion.php")) {
     $req = $access->prepare('SELECT password, role , id_user FROM utilisateur WHERE username = ?');
@@ -72,7 +94,34 @@ function afficher_grade(){
     $req->closeCursor();
   }
 }
+function afficher_cours(){
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
 
+  $id_connect  = $_SESSION['id'];
+  if(require("connexion.php")){
+    
+    if($_SESSION['role']=="enseignant"){
+      $req= $access->prepare('SELECT LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE WHERE enseigner.ID_ENSEIGNANT = ?');
+      $req->execute(array($id_connect));
+
+      $data = $req->fetchAll(PDO::FETCH_OBJ);
+
+      return $data;
+      $req->closeCursor();
+    }else{
+      
+      $req= $access->prepare('SELECT NOM, PRENOM, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE join enseignant on enseignant.ID_ENSEIGNANT= enseigner.ID_ENSEIGNANT');
+      $req->execute();
+
+      $data = $req->fetchAll(PDO::FETCH_OBJ);
+
+      return $data;
+      $req->closeCursor();
+    }
+  }
+}
 function afficher_sexe(){
     if(require("connexion.php"))
   {
@@ -114,5 +163,19 @@ function afficher_ue(){
   $req->closeCursor();
 }
 }
+function afficher_classe(){
+  if(require("connexion.php"))
+{
+  $req=$access->prepare("SELECT * FROM classe order by ID_CLASSE DESC");
+  $req->execute();
+
+  $data = $req->fetchAll(PDO::FETCH_OBJ);
+
+  return $data;
+
+  $req->closeCursor();
+}
+}
+
 
 ?>

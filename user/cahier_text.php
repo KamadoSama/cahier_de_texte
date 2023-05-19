@@ -1,3 +1,19 @@
+<?php 
+require("../config/fonction.php");
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if(!isset($_SESSION['role'])){
+  header('Location: ../index.php');
+}
+if(empty($_SESSION['role'])){
+  header('Location: ../index.php');
+}
+$cours = afficher_cours();
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,15 +21,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des cours</title>
-    <link rel="stylesheet" type="text/css" href="./css/cahier_text.css">
+    <link rel="stylesheet" type="text/css" href="../css/cahier_text.css">
     <?php include("./header.php"); ?>
     <div class="container">
       <h1>Liste des cours</h1>
       <table>
         <thead>
           <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
             <th>UE</th>
             <th>Heure de début</th>
             <th>Heure de fin</th>
@@ -22,34 +36,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>TAHO</td>
-            <td>Ben</td>
-            <td>Mathématiques</td>
-            <td>09:00</td>
-            <td>10:30</td>
-            <td>30</td>
-            <td>Cours sur les équations différentielles</td>
-          </tr>
-          <tr>
-            <td>MENSAH</td>
-            <td>Luc</td>
-            <td>Informatique</td>
-            <td>14:00</td>
-            <td>16:00</td>
-            <td>60</td>
-            <td>Cours sur les bases de données</td>
-          </tr>
-          <tr>
-            <td>AMION</td>
-            <td>Davy</td>
-            <td>Anglais</td>
-            <td>11:00</td>
-            <td>12:30</td>
-            <td>30</td>
-            <td>Cours sur la grammaire anglaise</td>
-          </tr>
-        </tbody>
+            <?php foreach($cours as $cour ):?>
+              <tr>
+
+                <td> <?= $cour->LIB_UE ?> </td>
+                <td> <?= $cour->DEBUT_ENS ?></td>
+                <td> <?= $cour->FIN_ENS ?></td>
+                <td> <?= $cour->VOL_ENS ?></td>
+                <td> <?= $cour->CONTENU ?></td>
+              </tr>
+            <?php endforeach; ?>
+         </tbody>
       </table>
     </div>
+    <script src="../js/burger.js"></script>
     <?php include("../footer.php"); ?>

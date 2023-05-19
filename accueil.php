@@ -20,7 +20,7 @@ if(empty($_SESSION['role'])){
     <div class="container">
       <h1 class="typing-effect"></h1>
       <div class="button-container">
-        <a href="./saisie_cours.php" class="button">Saisir cours</a>
+        <a href="./enregistrer_user.php" class="button">Ajouter un enseignant</a>
         <a href="./cahier_text.php" class="button">Voir les cours</a>
       </div>
     </div>

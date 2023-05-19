@@ -1,6 +1,15 @@
 <?php
 require("./config/fonction.php");
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 
+if(!isset($_SESSION['role'])){
+header('Location: ./index.php');
+}
+if(empty($_SESSION['role'])){
+header('Location: ./index.php');
+}
 $grades = afficher_grade();
 $sexes = afficher_sexe();
 $specialites = afficher_specialite();
@@ -83,4 +92,5 @@ $specialites = afficher_specialite();
             e.preventDefault()
         })
     </script> -->
+    <script src="./js/burger.js"></script>
     <?php include("./footer.php") ?>

@@ -30,6 +30,7 @@ $cours = afficher_cours();
             <th>Nom</th>
             <th>Prénom</th>
             <th>UE</th>
+            <th>Classe</th>
             <th>Date</th>
             <th>Heure de début</th>
             <th>Heure de fin</th>
@@ -38,18 +39,19 @@ $cours = afficher_cours();
           </tr>
         </thead>
         <tbody>
-        <?php foreach($cours as $cour ):?>
+          <?php foreach($cours as $cour ):?>
               <tr>
                 <td> <?= $cour->NOM ?> </td>
                 <td> <?= $cour->PRENOM ?> </td>
                 <td> <?= $cour->LIB_UE ?> </td>
+                <td><?= $cour->LIB_CLASSE ?></td>
                 <td> <?= $cour->DATE_ENS ?> </td>
                 <td> <?= $cour->DEBUT_ENS ?></td>
                 <td> <?= $cour->FIN_ENS ?></td>
                 <td> <?= $cour->VOL_ENS ?></td>
                 <td> <?= $cour->CONTENU ?></td>
               </tr>
-            <?php endforeach; ?>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>

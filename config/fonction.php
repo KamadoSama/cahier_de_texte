@@ -112,7 +112,7 @@ function afficher_cours(){
       $req->closeCursor();
     }else{
       
-      $req= $access->prepare('SELECT NOM, PRENOM, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE join enseignant on enseignant.ID_ENSEIGNANT= enseigner.ID_ENSEIGNANT');
+      $req= $access->prepare('SELECT NOM, PRENOM, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, LIB_CLASSE,CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE join enseignant on enseignant.ID_ENSEIGNANT= enseigner.ID_ENSEIGNANT');
       $req->execute();
 
       $data = $req->fetchAll(PDO::FETCH_OBJ);

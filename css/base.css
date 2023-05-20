@@ -46,71 +46,136 @@ footer{
     background-color: transparent;
     margin-top: auto;
 }
+#titre{
+  margin: 7%;
+  float: left;
+  font-weight: 600;
+}
 
-  /* Sidenav menu */
-  .topnav {
-    height: 230px;
-    width: 183px;
-    position: fixed;
-    z-index: 1;
-    /* top: 0; */
-    right: 10px;
-    top: -270px;
-    border-radius: 10px;
-    background-color: #f7f7f7;
-    padding-top: 60px;
-    transition: top 0.5s ease;
-    /* text-align: center; */
-    box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -1px 25px 7px rgba(0,0,0,0.75);
+li, a{
+  font-weight: 600;
+  font-size: 18;
+  color: white;
+  text-decoration: none;
+}
+a{
+  padding: 10px 10px 10px 10px;
+  border-radius: 4px;
+}
+li{
+  display: inline-block;
+  font-size: 18px;
+  /* padding: 10px; */
+  /* margin: 0 20px; */
+}
+
+li a {
+  transition: all 0.8s ease 0s;
+}
+
+li a:hover{
+  color: black;
+  background-color: white;
+}
+
+nav{
+  float: right;
+  margin-right: 5%;
+  display: flex;
+}
+
+
+/* Menu Burger */
+.menuBurger{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  /* border: 3px solid #fff; */
+  display: none;
+}
+
+.btnBurger{
+  width: 40px;
+  height: 5px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 143, 102, 0.267);
+  transition: all .5s ease-in-out;
+}
+
+.btnBurger::before, .btnBurger::after{
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 5px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 143, 102, 0.267);
+  transition: all .5s ease-in-out;
+}
+.btnBurger::before{
+  transform: translateY(-12px);
+}
+
+.btnBurger::after{
+  transform: translateY(12px);
+}
+
+.menuBurger.open .btnBurger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+.menuBurger.open .btnBurger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menuBurger.open .btnBurger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+/* Fin */
+
+
+@media only screen and (max-width : 950px) {
+
+  header{
+      /* position: fixed; */
   }
-  
-  .topnav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+
+  .menuBurger{
+      display: flex;
   }
-  
-  /* Sidenav menu links */
-  .topnav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 17px;
-    color: black;
-    display: block;
-    transition: 0.3s;
+
+  nav ul{
+      position: fixed;
+      top: 60px;
+      left: -100%;
+      background: black;
+      height: 100vh;
+      width: 100%;
+      display: block;
+      text-align: center;
+      transition: all .3s ease-in-out;
+      z-index: 20px;
   }
-  
-  .topnav ul a:hover {
-    background-color: #000;
-    color: #f7f7f7;
+
+  nav li {
+      text-align: center;
+      width: 100%;
+      padding: 15px 0;
+      margin: 40px 0;
   }
-  
-  /* Active class */
-  .topnav.active {
-    top:59px;
+
+  nav ul li a {
+      font-size: 20px;
   }
-  
-  /* Close btn */
-  .topnav .close {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
+
+  nav ul li a:active {
+      color: whitesmoke;
   }
-  
-  .burger-icon span {
-    /* position: absolute; */
-    display: block;
-    width: 35px;
-    height: 5px;
-    background-color:#fff ;
-    margin: 6px 0;
-    padding:0px 10px;
-  }
-  .burger-icon{
-    position: absolute;
-    right: 10px;
-    top: 7.5px;
-  }
+}

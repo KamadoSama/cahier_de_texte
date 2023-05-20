@@ -31,6 +31,7 @@ $cours = afficher_cours();
             <th>UE</th>
             <th>Heure de début</th>
             <th>Heure de fin</th>
+            <th>Date</th>
             <th>Volume horaire</th>
             <th>Contenu</th>
           </tr>
@@ -42,6 +43,7 @@ $cours = afficher_cours();
                 <td> <?= $cour->LIB_UE ?> </td>
                 <td> <?= $cour->DEBUT_ENS ?></td>
                 <td> <?= $cour->FIN_ENS ?></td>
+                <td><?=$cour->DATE_ENS ?></td>
                 <td> <?= $cour->VOL_ENS ?></td>
                 <td> <?= $cour->CONTENU ?></td>
               </tr>

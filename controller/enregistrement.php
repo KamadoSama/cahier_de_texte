@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         && !empty($password) && !empty($role) && !empty($specialite)
         && !empty($sexe) && !empty($grade)) {
         echo "yo know";
-        // sanitize user input
+        
         $nom = htmlspecialchars($nom);
         $prenom = htmlspecialchars($prenom);
         $username = htmlspecialchars($username);
@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sexe = htmlspecialchars($sexe);
         $grade = htmlspecialchars($grade);
   
-        // save user data to database
         enrengistrer_user($nom, $prenom, $username, $contact, $password, $role, $specialite, $sexe, $grade);
     }
   }

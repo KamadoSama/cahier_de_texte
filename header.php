@@ -2,7 +2,7 @@
 </head>
 <body>
     <header>
-        <h1 id="titre">GestoPers</h1>
+        <a id="titre"><img src="./assets/logo.jpg" alt="logo esatic" width="100%" height="100%"></a>
         <nav>
             <ul id="nav">
                 <li><a href="./enregistrer_user.php">Ajouter un enseignant</a></li>

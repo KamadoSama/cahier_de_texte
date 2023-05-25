@@ -9,10 +9,31 @@
     <style>
       body{
         height: 100vh;
-      }
+      
+      overflow: hidden;
+    }
+
+    #svg-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    #svg-container svg {
+      width: 100%;
+      height: 20%;
+    }
     </style>
     <!-- <?php include("./header.php") ?> -->
+    <div id="svg-container">
+      <object type="image/svg+xml" data="./assets/back1.svg" id="animated-svg"></object>
+    </div>
+    
     <div class="container" >
+      
       <div class="login">
         <h1>Connexion</h1>
         <form action="./controller/connexion_sys.php" method="post">

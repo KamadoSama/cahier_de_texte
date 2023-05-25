@@ -4,10 +4,12 @@ body {
     justify-content: center !important;
     align-items: center !important;
     /* height: 120vh; */
-    background-image: url("../assets/back.jpg");
-    background-size: cover;
+    /* background-image: url("../assets/back1.svg"); */
+    /* background-size: cover; */
   }
-  
+  .titre{
+    height: 100%;
+  }
   .container {
     margin: auto;
     display: flex;

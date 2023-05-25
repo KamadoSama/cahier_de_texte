@@ -17,13 +17,17 @@ if(empty($_SESSION['role'])){
     <title>Page d'accueil</title>
     <link rel="stylesheet" type="text/css" href="./css/accueil.css">
     <?php include("./header.php"); ?>
-    <div class="container">
+    <section>
+      <div class="back_image"></div>
+      
+    </section>
+    <!-- <div class="container">
       <h1 class="typing-effect"></h1>
       <div class="button-container">
         <a href="./enregistrer_user.php" class="button">Ajouter un enseignant</a>
         <a href="./cahier_text.php" class="button">Voir les cours</a>
       </div>
-    </div>
+    </div> -->
     <script src="./js/burger.js"></script>
     <script src="./js/cursor.js"></script>
     <?php include("./footer.php"); ?>

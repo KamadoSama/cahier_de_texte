@@ -136,5 +136,5 @@ $specialites = afficher_specialite();
             e.preventDefault()
         })
     </script> -->
-    <script src="./js/burger.js"></script>
+   
     <?php include("./footer.php") ?>

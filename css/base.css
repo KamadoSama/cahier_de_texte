@@ -157,9 +157,10 @@ nav{
 
   nav ul{
       position: fixed;
+      z-index: 1;
       top: 60px;
       left: -100%;
-      background: black;
+      background:#d9d9d9;
       height: 100vh;
       width: 100%;
       display: block;

@@ -10,6 +10,7 @@
     if(empty($_SESSION['role'])){
       header('Location: ./index.php');
     }
+    $cours= afficher_cours()
 ?>
 
 <!DOCTYPE html>
@@ -52,32 +53,28 @@
             </section>
             <section class="matiere">
                 <h2>Matières</h2>
-                <table id="coursTable">
-                    <thead>
-                    <tr>
-                        <th>UE</th>
-                        <th>Classe</th>   
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="table_container">
+                    <table id="coursTable">
+                        <thead>
                         <tr>
-                            <td>
-                                <p>python</p>
-                            </td>
-                            <td>
-                                <p>M1SGIL</p>
-                            </td>
+                            <th>UE</th>
+                            <th>Classe</th>   
                         </tr>
-                        <tr>
-                            <td>
-                                <p>python</p>
-                            </td>
-                            <td>
-                                <p>M1SGIL</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php foreach($cours as $cour): ?>
+                                <tr>
+                                    <td>
+                                        <p><?= $cour->LIB_UE?> </p>
+                                    </td>
+                                    <td>
+                                        <p><?= $cour->LIB_CLASSE ?></p>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </section>
     </main>

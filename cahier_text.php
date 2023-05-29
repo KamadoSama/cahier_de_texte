@@ -71,5 +71,5 @@ $cours = afficher_cours();
       // Afficher le volume horaire
       echo "Volume horaire : " . $volumeHoraire . " heures";
 ?> -->
-    <script src="./js/burger.js"></script>
+    
     <?php include("./footer.php"); ?>

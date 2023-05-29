@@ -49,6 +49,6 @@ if(empty($_SESSION['role'])){
         <a href="./cahier_text.php" class="button">Voir les cours</a>
       </div>
     </div> -->
-    <script src="./js/burger.js"></script>
+  
     <script src="./js/cursor.js"></script>
     <?php include("./footer.php"); ?>

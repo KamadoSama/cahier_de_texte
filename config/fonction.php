@@ -132,20 +132,23 @@ function afficher_cours_by_class_id($id_classe){
   if(require("connexion.php")){
     
     if($_SESSION['role']=="enseignant"){
-      $req= $access->prepare('SELECT LIB_CLASSE, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE WHERE enseigner.ID_CLASSE = ?');
-      $req->execute(array($id_classe));
-
-      $data = $req->fetchAll(PDO::FETCH_OBJ);
-
-      return $data;
-      $req->closeCursor();
+      if($id_classe==0){
+        $req= $access->prepare('SELECT LIB_CLASSE, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE WHERE enseigner.ID_ENSEIGNANT = ?');
+        $req->execute(array($id_connect));
+        $data = $req->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+        $req->closeCursor();
+      }else{
+        $req= $access->prepare('SELECT LIB_CLASSE, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE WHERE enseigner.ID_CLASSE = ? AND enseigner.ID_ENSEIGNANT = ?');
+        $req->execute(array($id_classe,$id_connect));
+        $data = $req->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+        $req->closeCursor();
+      }
     }else{
-      
       $req= $access->prepare('SELECT NOM, PRENOM, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, LIB_CLASSE,CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE join enseignant on enseignant.ID_ENSEIGNANT= enseigner.ID_ENSEIGNANT');
       $req->execute();
-
       $data = $req->fetchAll(PDO::FETCH_OBJ);
-
       return $data;
       $req->closeCursor();
     }

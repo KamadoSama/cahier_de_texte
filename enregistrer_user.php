@@ -22,6 +22,10 @@ $specialites = afficher_specialite();
     <title>Page d'enregistrement</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <style>
+      body{
+        background-image: url("./assets/back.jpg");
+        background-size: cover;
+      }
       .container{
         width: 40%;
       }

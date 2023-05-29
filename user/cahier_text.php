@@ -28,7 +28,7 @@ $classes = afficher_classe();
       <h1>Liste des cours</h1>
       <label for="selectClasse">Sélectionner une classe :</label>
         <select id="selectClasse">
-            <option value="">Toutes les classes</option>
+            <option value="0">Toutes les classes</option>
             <?php foreach ($classes as $classe): ?>
                 <option value="<?= $classe->ID_CLASSE ?>"><?= $classe->LIB_CLASSE ?></option>
             <?php endforeach; ?>

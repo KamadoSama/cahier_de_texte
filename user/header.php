@@ -3,7 +3,8 @@
 <body>
     
     <header>
-        <h1 id="titre">GestoPers</h1>
+        
+        <a id="titre" href="./accueil.php"><img src="../assets/logo.jpg" alt="logo esatic" width="100%" height="100%"></a>
         <nav>
             <ul id="nav">
                 <li><a href="./saisie_cours.php">Ajouter un cours</a></li>
@@ -15,6 +16,5 @@
                 <div class="btnBurger"></div>
             </div>
         </nav>
-    
     </header>    
     

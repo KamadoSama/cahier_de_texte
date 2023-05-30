@@ -1,58 +1,4 @@
-<?php 
-  require("./config/connexion.php")
-?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Page de connexion</title>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <style>
-      *{
-        padding: 0;
-        margin: 0;
-      }
-      body{
-        height: 100vh;
-        overflow: hidden;}
-
-      #particles-js  {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: #DEDEDE;
-      }
-
-      /* #svg-container svg {
-        width: 100%;
-        height: 20%;
-      } */
-    </style>
-    
-    <div id="particles-js">
-      
-    </div>
-    
-    <div class="container" >
-      
-      <div class="login">
-        <h1>Connexion</h1>
-        <form action="./controller/connexion_sys.php" method="post">
-          <label for="username">Nom d'utilisateur:</label>
-          <input type="text" id="username" name="username" required>
-          <br>
-          <label for="password">Mot de passe:</label>
-          <input type="password" id="password" name="password" required>
-          <br>
-          <div class="button-container">
-            <button type="submit">Connexion</button>
-            <button type="reset">Annuler</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <script src="./particles.js-master/particles.js"></script>
-    <script>
-        particlesJS("particles-js",{
+{
   "particles": {
     "number": {
       "value": 80,
@@ -62,7 +8,7 @@
       }
     },
     "color": {
-      "value": "#000000"
+      "value": "#ffffff"
     },
     "shape": {
       "type": "circle",
@@ -90,7 +36,7 @@
       }
     },
     "size": {
-      "value": 3,
+      "value": 5,
       "random": true,
       "anim": {
         "enable": false,
@@ -101,8 +47,8 @@
     },
     "line_linked": {
       "enable": true,
-      "distance": 200,
-      "color": "#000000",
+      "distance": 150,
+      "color": "#ffffff",
       "opacity": 0.4,
       "width": 1
     },
@@ -113,7 +59,6 @@
       "random": false,
       "straight": false,
       "out_mode": "out",
-      "bounce": false,
       "attract": {
         "enable": false,
         "rotateX": 600,
@@ -149,8 +94,7 @@
         "speed": 3
       },
       "repulse": {
-        "distance": 201,
-        "duration": 0.4
+        "distance": 200
       },
       "push": {
         "particles_nb": 4
@@ -160,9 +104,13 @@
       }
     }
   },
-  "retina_detect": true
-});
-5
-    </script>
-    
-
+  "retina_detect": true,
+  "config_demo": {
+    "hide_card": false,
+    "background_color": "#b61924",
+    "background_image": "",
+    "background_position": "50% 50%",
+    "background_repeat": "no-repeat",
+    "background_size": "cover"
+  }
+}

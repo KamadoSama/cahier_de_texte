@@ -10,7 +10,8 @@
     if(empty($_SESSION['role'])){
       header('Location: ./index.php');
     }
-    $cours= afficher_cours()
+    $cours= afficher_cours();
+    $grade_specialite = affiche_grade_specialie_for_profile();
 ?>
 
 <!DOCTYPE html>
@@ -37,17 +38,23 @@
             <object type="image/svg+xml" data="./assets/profile.svg" id="animated-svg" ></object>
             </div>
             <div class="nom">
-                <h2>TAHO Ben Arthur</h2>
+            <?php foreach($grade_specialite as $grade_spec): ?>
+                <h2><?= $grade_spec->NOM ?> <?= $grade_spec->PRENOM ?>  </h2>
+            <?php endforeach ?>
             </div>
         </section>
         <section id="container_information">
             <div id="container_spe_grad">
-                <h3>Specialité: Inteligence Artificielle</h3>
-                <h3>Grade: Inteligence Artificielle</h3>
+            <?php foreach($grade_specialite as $grade_spec): ?>
+                <h3><strong>Specialité: </strong> <?= $grade_spec->LIB_SPECIALITE?></h3>
+                <h3><strong>Grade: </strong>  <?= $grade_spec->LIB_GRADE?></h3>
+               <?php endforeach ?>
             </div>
             <section>
                 <div id="container_username">
-                    <h3>Nom d'utilisateur: Kamado12</h3>
+                <?php foreach($grade_specialite as $grade_spec): ?>
+                    <h3><strong>Nom d'utilisateur:</strong> <?= $grade_spec->username ?> </h3>
+                    <?php endforeach ?>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#exampleModal">Modifier le mot de passe</button>
                 </div>
             </section>

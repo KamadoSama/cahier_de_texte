@@ -210,6 +210,13 @@ function afficher_classe(){
   $req->closeCursor();
 }
 }
-
+function affiche_grade_specialie_for_profile(){
+  if(require("connexion.php")){
+    $req= $access->prepare("SELECT LIB_GRADE, LIB_SPECIALITE, NOM , PRENOM , username from grade JOIN enseignant on grade.ID_GRADE = enseignant.ID_GRADE join specialite on specialite.ID_SPECIALITE = enseignant.ID_SPECIALITE JOIN utilisateur on utilisateur.id_enseignant= enseignant.ID_ENSEIGNANT WHERE enseignant.ID_ENSEIGNANT=?;");
+    $req->execute(array($_SESSION['id']));
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+  }
+}
 
 ?>

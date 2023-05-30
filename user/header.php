@@ -9,7 +9,7 @@
             <ul id="nav">
                 <li><a href="./saisie_cours.php">Ajouter un cours</a></li>
                 <li><a href="./cahier_text.php">Voir mes cours</a></li>
-                <li><a href="../profile.php">Profil</a></li>
+                <li><a href="./profile.php">Profil</a></li>
                 <li><a href="../controller/deconnexion_sys.php">Se deconnecter</a></li>
             </ul>
 

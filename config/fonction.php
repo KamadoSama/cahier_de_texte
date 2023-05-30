@@ -132,6 +132,7 @@ function afficher_cours_by_class_id($id_classe){
   if(require("connexion.php")){
     
     if($_SESSION['role']=="enseignant"){
+      
       if($id_classe==0){
         $req= $access->prepare('SELECT LIB_CLASSE, LIB_UE , VOL_ENS , DATE_ENS, DEBUT_ENS, FIN_ENS, CONTENU from ue join enseigner on ue.ID_UE = enseigner.ID_UE join classe on classe.ID_CLASSE = enseigner.ID_CLASSE WHERE enseigner.ID_ENSEIGNANT = ?');
         $req->execute(array($id_connect));

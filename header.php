@@ -8,7 +8,7 @@
                 <li><a href="./enregistrer_user.php">Ajouter un enseignant</a></li>
                 <!-- <li><a href="#">Ajouter un cours</a></li> -->
                 <li><a href="./cahier_text.php">Voir les cours</a></li>
-                <li><a href="./profile.php">Profil</a></li>
+                <!-- <li><a href="./profile.php">Profil</a></li> -->
                 <li><a href="./controller/deconnexion_sys.php">Se deconnecter</a></li>
             </ul>
 

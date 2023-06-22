@@ -60,4 +60,4 @@ Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce proje
 
 ## Auteurs
 
-- [Votre nom](https://github.com/KamadoSama)- Développeur principal
+- [Kamado_Sama](https://github.com/KamadoSama)- Développeur principal

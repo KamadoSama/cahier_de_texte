@@ -54,7 +54,7 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce projet, veuillez suivre les étapes suivantes :
 
 1. Fork du référentiel du projet.
-2. Créez une nouvelle branche pour votre fonctionnalité ou votre correction de bogue.
+2. Créez une nouvelle branche pour votre fonctionnalité ou votre correction de bug.
 3. Effectuez les modifications nécessaires et committez-les.
 4. Soumettez une demande de tirage (Pull Request).
 
